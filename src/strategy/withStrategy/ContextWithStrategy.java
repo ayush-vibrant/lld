@@ -1,4 +1,4 @@
-package strategy;
+package strategy.withStrategy;
 
 public class ContextWithStrategy {
     private Strategy strategy;
