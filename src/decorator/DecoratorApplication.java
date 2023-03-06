@@ -2,17 +2,18 @@ package decorator;
 
 public class DecoratorApplication {
     public static void main(String[] args) {
-        Feature feature = new BasicFeature();
-        feature.doSomething();
-        System.out.println("--------------------");
+        Feature basicFeature = new BasicFeature("basic feature", 10.0);
+        print(basicFeature);
 
-        feature = new EnhancedFeatureA(new BasicFeature());
-        feature.doSomething();
-        System.out.println("--------------------");
+        EnhancedFeature highlightFeature = new HighlightFeature(basicFeature);
+        print(highlightFeature);
 
+        EnhancedFeature enhancedFeature = new BoldFeature(highlightFeature);
+        print(enhancedFeature);
+    }
 
-        feature = new EnhancedFeatureB(new EnhancedFeatureA(new BasicFeature()));
-        feature.doSomething();
-        System.out.println("--------------------");
+    private static void print(Feature feature) {
+        System.out.println(feature.getDescription());
+        System.out.println(feature.getCost());
     }
 }

@@ -1,5 +1,7 @@
 package decorator;
 
 public interface Feature {
-    void doSomething();
+    String getDescription();
+    double getCost();
 }
+
