@@ -1,5 +1,6 @@
 package questions.parkingLot.entity.gates;
 
+import questions.parkingLot.entity.parkingSpot.ParkingSpotFinder;
 import questions.parkingLot.entity.parkingSpot.parkingSpotManager.ParkingSpotManager;
 import questions.parkingLot.entity.parkingSpot.parkingSpotManagerFactory.ParkingSpotManagerFactory;
 import questions.parkingLot.entity.parkingSpot.ParkingSpot;

@@ -1,4 +1,4 @@
-package questions.parkingLot.entity.gates;
+package questions.parkingLot.entity.parkingSpot;
 
 import questions.parkingLot.entity.parkingSpot.ParkingSpot;
 import questions.parkingLot.entity.parkingSpot.parkingSpotManager.ParkingSpotManager;
