@@ -4,10 +4,22 @@ import questions.parkingLot.entity.parkingSpot.ParkingSpot;
 import questions.parkingLot.entity.vehicle.Vehicle;
 import questions.parkingLot.entity.vehicle.VehicleType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TwoWheelerParkingSpotManager implements ParkingSpotManager {
     private List<ParkingSpot> parkingSpotList;
+    public static TwoWheelerParkingSpotManager instance = null;
+
+    private TwoWheelerParkingSpotManager() {
+    }
+
+    public static TwoWheelerParkingSpotManager getInstance() {
+        if (instance == null) {
+            instance = new TwoWheelerParkingSpotManager(new ArrayList<>(600));
+        }
+        return instance;
+    }
 
     public TwoWheelerParkingSpotManager(List<ParkingSpot> parkingSpotList) {
         this.parkingSpotList = parkingSpotList;

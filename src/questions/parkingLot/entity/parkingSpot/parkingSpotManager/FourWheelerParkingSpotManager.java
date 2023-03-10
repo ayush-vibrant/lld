@@ -4,16 +4,28 @@ import questions.parkingLot.entity.parkingSpot.ParkingSpot;
 import questions.parkingLot.entity.vehicle.Vehicle;
 import questions.parkingLot.entity.vehicle.VehicleType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FourWheelerParkingSpotManager implements ParkingSpotManager {
     private List<ParkingSpot> parkingSpotList;
+    public static FourWheelerParkingSpotManager instance = null;
 
-    // You might need to instansiate this list in the constructor
+    private FourWheelerParkingSpotManager() {
+    }
+
+    public static FourWheelerParkingSpotManager getInstance() {
+        if (instance == null) {
+            instance = new FourWheelerParkingSpotManager(new ArrayList<>(400));
+        }
+        return instance;
+    }
+
 
     public FourWheelerParkingSpotManager(List<ParkingSpot> parkingSpotList) {
         this.parkingSpotList = parkingSpotList;
     }
+
     @Override
     public void addParkingSpot(ParkingSpot parkingSpot) {
         parkingSpotList.add(parkingSpot);
@@ -33,8 +45,7 @@ public class FourWheelerParkingSpotManager implements ParkingSpotManager {
                 }
             }
             throw new IllegalArgumentException("No parking spot available");
-        }
-        else throw new IllegalArgumentException("Vehicle type is not four wheeler");
+        } else throw new IllegalArgumentException("Vehicle type is not four wheeler");
     }
 
     @Override
