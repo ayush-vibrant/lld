@@ -2,6 +2,10 @@ package questions.parkingLot;
 
 import questions.parkingLot.entity.gates.EntryGate;
 import questions.parkingLot.entity.gates.ExitGate;
+import questions.parkingLot.entity.parkingSpot.FourWheelerParkingSpot;
+import questions.parkingLot.entity.parkingSpot.TwoWheelerParkingSpot;
+import questions.parkingLot.entity.parkingSpot.parkingSpotManager.ParkingSpotManager;
+import questions.parkingLot.entity.parkingSpot.parkingSpotManagerFactory.ParkingSpotManagerFactory;
 import questions.parkingLot.entity.ticket.Ticket;
 import questions.parkingLot.entity.vehicle.Vehicle;
 import questions.parkingLot.entity.vehicle.VehicleType;
@@ -12,6 +16,14 @@ public class ParkingLotApplication {
         // Question: When to use static methods and when to use instance methods?
         Vehicle twoWheelerVehicle = VehicleFactory.getVehicle("MH-12-AB-1234", VehicleType.TWO_WHEELER);
         Vehicle fourWheelerVehicle = VehicleFactory.getVehicle("RJ-14-SB-7123", VehicleType.FOUR_WHEELER);
+
+        ParkingSpotManager parkingSpotManagerForTwoWheeler = ParkingSpotManagerFactory.getParkingSpotManager(twoWheelerVehicle);
+        // TODO: You should not directly use concrete classes like TwoWheelerParkingSpot
+        parkingSpotManagerForTwoWheeler.addParkingSpot(new TwoWheelerParkingSpot("A1", twoWheelerVehicle));
+
+        ParkingSpotManager parkingSpotManagerForFourWheeler = ParkingSpotManagerFactory.getParkingSpotManager(fourWheelerVehicle);
+        parkingSpotManagerForFourWheeler.addParkingSpot(new FourWheelerParkingSpot("B2", fourWheelerVehicle));
+
 
         // Question: When to use static methods and when to use instance methods?
         Ticket ticketForTwoWheeler = EntryGate.parkAndGenerateTicket(twoWheelerVehicle);

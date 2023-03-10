@@ -46,7 +46,7 @@ public class Ticket {
         ticket.setTicketNumber(generateTicketNumber(vehicle));
         ticket.setVehicle(vehicle);
         ticket.setParkingSpot(parkingSpot);
-        ticket.setEntryTime(System.currentTimeMillis());
+        ticket.setEntryTime(System.currentTimeMillis() - 10000000); // To generate some billing amount
         return ticket;
     }
 

@@ -13,10 +13,10 @@ public class ParkingSpotManagerFactory {
     public static ParkingSpotManager getParkingSpotManager(Vehicle vehicle) {
         switch (vehicle.getVehicleType()) {
             case TWO_WHEELER:
-                parkingSpotManager = new TwoWheelerParkingSpotManager(new ArrayList<>(600));
+                parkingSpotManager = TwoWheelerParkingSpotManager.getInstance();
                 break;
             case FOUR_WHEELER:
-                parkingSpotManager = new FourWheelerParkingSpotManager(new ArrayList<>(400));
+                parkingSpotManager = FourWheelerParkingSpotManager.getInstance();
                 break;
             default:
                 throw new IllegalArgumentException("Invalid vehicle type");

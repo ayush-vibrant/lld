@@ -7,6 +7,7 @@ import questions.parkingLot.entity.ticket.Ticket;
 import questions.parkingLot.entity.vehicle.Vehicle;
 
 public class EntryGate {
+    private EntryGate() {}
 
     public static ParkingSpot findParkingSpot(Vehicle vehicle) {
         ParkingSpotManager parkingSpotManager = ParkingSpotManagerFactory.getParkingSpotManager(vehicle);

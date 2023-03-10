@@ -5,10 +5,18 @@ import questions.parkingLot.entity.vehicle.VehicleType;
 
 public class TwoWheelerParkingSpot implements ParkingSpot {
     private String spotNumber;
-    private VehicleType vehicleType = VehicleType.TWO_WHEELER;
+    private VehicleType vehicleType;
     private Vehicle vehicle;
     private boolean isAvailable;
-    private double price = 10.0;
+    private double price;
+
+    public TwoWheelerParkingSpot(String spotNumber, Vehicle vehicle) {
+        this.spotNumber = spotNumber;
+        this.vehicleType = VehicleType.TWO_WHEELER;
+        this.vehicle = vehicle;
+        this.isAvailable = true;
+        this.price = 10.0;
+    }
 
     @Override
     public boolean parkVehicle(Vehicle vehicle) {
