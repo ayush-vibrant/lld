@@ -1,8 +1,18 @@
 package questions.parkingLot.entity.vehicle;
 
 public class FourWheelerVehicle implements Vehicle {
-    private String licensePlate;
-    private VehicleType vehicleType;
+
+    /*
+    licensePlate and vehicleType variables final in the FourWheelerVehicle class
+    because they are immutable properties of a vehicle.
+    Once a vehicle is created, its license plate and type should not be changed.
+    By making these variables final, you ensure that their values are set only once,
+    during object creation, and cannot be changed afterwards.
+    This helps to prevent accidental or malicious modification of these properties
+    and makes the class more robust and less error-prone.
+     */
+    private final String licensePlate;
+    private final VehicleType vehicleType;
 
     public FourWheelerVehicle(String licensePlate) {
         this.licensePlate = licensePlate;
@@ -14,15 +24,8 @@ public class FourWheelerVehicle implements Vehicle {
         return licensePlate;
     }
 
-    public void setLicensePlate(String licensePlate) {
-        this.licensePlate = licensePlate;
-    }
-
     public VehicleType getVehicleType() {
         return vehicleType;
     }
 
-    public void setVehicleType(VehicleType vehicleType) {
-        this.vehicleType = vehicleType;
-    }
 }
