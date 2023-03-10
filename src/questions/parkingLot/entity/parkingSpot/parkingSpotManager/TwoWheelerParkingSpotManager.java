@@ -9,7 +9,7 @@ import java.util.List;
 
 public class TwoWheelerParkingSpotManager implements ParkingSpotManager {
     private List<ParkingSpot> parkingSpotList;
-    public static TwoWheelerParkingSpotManager instance = null;
+    private static TwoWheelerParkingSpotManager instance = null;
 
     private TwoWheelerParkingSpotManager() {
     }
