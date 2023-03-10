@@ -15,7 +15,8 @@ public class ExitGate {
     }
 
     public double exit() {
-        ParkingSpotManager parkingSpotManager = ParkingSpotManagerFactory.getParkingSpotManager(ticket.getVehicle());
+        ParkingSpotManager parkingSpotManager = ParkingSpotManagerFactory.getFactory(ticket.getVehicle())
+                .getParkingSpotManager(ticket.getVehicle());
         boolean isRemoved = parkingSpotManager.removeVehicle(ticket.getParkingSpot());
         if (isRemoved)
             return calculateCharges();

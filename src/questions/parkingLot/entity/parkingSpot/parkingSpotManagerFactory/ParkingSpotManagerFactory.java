@@ -7,20 +7,17 @@ import questions.parkingLot.entity.vehicle.Vehicle;
 
 import java.util.ArrayList;
 
-public class ParkingSpotManagerFactory {
-    static ParkingSpotManager parkingSpotManager;
+public abstract class ParkingSpotManagerFactory {
+    public abstract ParkingSpotManager getParkingSpotManager(Vehicle vehicle);
 
-    public static ParkingSpotManager getParkingSpotManager(Vehicle vehicle) {
+    public static ParkingSpotManagerFactory getFactory(Vehicle vehicle) {
         switch (vehicle.getVehicleType()) {
             case TWO_WHEELER:
-                parkingSpotManager = TwoWheelerParkingSpotManager.getInstance();
-                break;
+                return new TwoWheelerParkingSpotManagerFactory();
             case FOUR_WHEELER:
-                parkingSpotManager = FourWheelerParkingSpotManager.getInstance();
-                break;
+                return new FourWheelerParkingSpotManagerFactory();
             default:
-                throw new IllegalArgumentException("Invalid vehicle type");
+                throw new IllegalArgumentException("Invalid vehicle type in vehicle");
         }
-        return parkingSpotManager;
     }
 }

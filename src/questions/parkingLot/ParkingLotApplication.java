@@ -17,11 +17,15 @@ public class ParkingLotApplication {
         Vehicle twoWheelerVehicle = VehicleFactory.getFactory(VehicleType.TWO_WHEELER).getVehicle("MH-12-AB-1234");
         Vehicle fourWheelerVehicle = VehicleFactory.getFactory(VehicleType.FOUR_WHEELER).getVehicle("RJ-14-SB-7123");
 
-        ParkingSpotManager parkingSpotManagerForTwoWheeler = ParkingSpotManagerFactory.getParkingSpotManager(twoWheelerVehicle);
+        ParkingSpotManager parkingSpotManagerForTwoWheeler = ParkingSpotManagerFactory
+                .getFactory(twoWheelerVehicle)
+                .getParkingSpotManager(twoWheelerVehicle);
         // TODO: You should not directly use concrete classes like TwoWheelerParkingSpot
         parkingSpotManagerForTwoWheeler.addParkingSpot(new TwoWheelerParkingSpot("A1", twoWheelerVehicle));
 
-        ParkingSpotManager parkingSpotManagerForFourWheeler = ParkingSpotManagerFactory.getParkingSpotManager(fourWheelerVehicle);
+        ParkingSpotManager parkingSpotManagerForFourWheeler = ParkingSpotManagerFactory
+                .getFactory(fourWheelerVehicle)
+                .getParkingSpotManager(fourWheelerVehicle);
         parkingSpotManagerForFourWheeler.addParkingSpot(new FourWheelerParkingSpot("B2", fourWheelerVehicle));
 
 
