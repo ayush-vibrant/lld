@@ -28,4 +28,11 @@ public class FourWheelerVehicle implements Vehicle {
         return vehicleType;
     }
 
+    @Override
+    public String toString() {
+        return "FourWheelerVehicle{" +
+                "licensePlate='" + licensePlate + '\'' +
+                ", vehicleType=" + vehicleType +
+                '}';
+    }
 }

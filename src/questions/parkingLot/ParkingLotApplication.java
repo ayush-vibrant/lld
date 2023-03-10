@@ -13,7 +13,6 @@ import questions.parkingLot.entity.vehicle.vehicleFactory.VehicleFactory;
 
 public class ParkingLotApplication {
     public static void main(String[] args) {
-        // Question: When to use static methods and when to use instance methods?
         Vehicle twoWheelerVehicle = VehicleFactory.getFactory(VehicleType.TWO_WHEELER).getVehicle("MH-12-AB-1234");
         Vehicle fourWheelerVehicle = VehicleFactory.getFactory(VehicleType.FOUR_WHEELER).getVehicle("RJ-14-SB-7123");
 
@@ -36,10 +35,10 @@ public class ParkingLotApplication {
         // Question: When to use static methods and when to use instance methods?
         ExitGate exitGateForTwoWheeler = new ExitGate(ticketForTwoWheeler);
         double amountDueForTwoWheeler = exitGateForTwoWheeler.exit();
-        System.out.println("Amount due: " + amountDueForTwoWheeler);
+        System.out.println("Amount due for " + ticketForTwoWheeler.getVehicle().toString() + " : " + amountDueForTwoWheeler);
 
         ExitGate exitGate = new ExitGate(ticketForFourWheeler);
         double amountDue = exitGate.exit();
-        System.out.println("Amount due: " + amountDue);
+        System.out.println("Amount due for " + ticketForFourWheeler.getVehicle().toString() + " : " + amountDue);
     }
 }
