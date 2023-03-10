@@ -14,8 +14,8 @@ import questions.parkingLot.entity.vehicle.vehicleFactory.VehicleFactory;
 public class ParkingLotApplication {
     public static void main(String[] args) {
         // Question: When to use static methods and when to use instance methods?
-        Vehicle twoWheelerVehicle = VehicleFactory.getVehicle("MH-12-AB-1234", VehicleType.TWO_WHEELER);
-        Vehicle fourWheelerVehicle = VehicleFactory.getVehicle("RJ-14-SB-7123", VehicleType.FOUR_WHEELER);
+        Vehicle twoWheelerVehicle = VehicleFactory.getFactory(VehicleType.TWO_WHEELER).getVehicle("MH-12-AB-1234");
+        Vehicle fourWheelerVehicle = VehicleFactory.getFactory(VehicleType.FOUR_WHEELER).getVehicle("RJ-14-SB-7123");
 
         ParkingSpotManager parkingSpotManagerForTwoWheeler = ParkingSpotManagerFactory.getParkingSpotManager(twoWheelerVehicle);
         // TODO: You should not directly use concrete classes like TwoWheelerParkingSpot
