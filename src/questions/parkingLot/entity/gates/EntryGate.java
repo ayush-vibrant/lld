@@ -10,16 +10,18 @@ public class EntryGate {
     private EntryGate() {
     }
 
-    public static ParkingSpot findParkingSpot(Vehicle vehicle) {
-        ParkingSpotManagerFactory.getFactory(vehicle).getParkingSpotManager(vehicle);
-        ParkingSpotManager parkingSpotManager = ParkingSpotManagerFactory.getFactory(vehicle).getParkingSpotManager(vehicle);
-        return parkingSpotManager.getParkingSpot(vehicle);
-    }
-
     public static Ticket parkAndGenerateTicket(Vehicle vehicle) {
         ParkingSpot parkingSpot = findParkingSpot(vehicle);
+        parkVehicle(vehicle, parkingSpot);
+        return Ticket.generateTicket(vehicle, parkingSpot);
+    }
+
+    private static void parkVehicle(Vehicle vehicle, ParkingSpot parkingSpot) {
         ParkingSpotManager parkingSpotManager = ParkingSpotManagerFactory.getFactory(vehicle).getParkingSpotManager(vehicle);
         parkingSpotManager.parkVehicle(parkingSpot, vehicle);
-        return Ticket.generateTicket(vehicle, parkingSpot);
+    }
+
+    public static ParkingSpot findParkingSpot(Vehicle vehicle) {
+        return ParkingSpotFinder.findParkingSpot(vehicle);
     }
 }
