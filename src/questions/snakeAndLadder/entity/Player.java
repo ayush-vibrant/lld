@@ -1,7 +1,7 @@
 package questions.snakeAndLadder.entity;
 
 public class Player {
-    private int playerId;
+    private final int playerId;
     private int position;
 
     public Player(int playerId, int position) {
@@ -11,10 +11,6 @@ public class Player {
 
     public int getPlayerId() {
         return playerId;
-    }
-
-    public void setPlayerId(int playerId) {
-        this.playerId = playerId;
     }
 
     public int getPosition() {
