@@ -1,17 +1,21 @@
-package questions.snakeAndLadder.entity;
+package questions.snakeAndLadder.service;
+
+import questions.snakeAndLadder.entity.Board;
+import questions.snakeAndLadder.entity.JumpCell;
+import questions.snakeAndLadder.entity.NormalCell;
 
 import java.util.Random;
 
-public class SnakeLadderAdder {
+public class SnakeLadderAdderService {
     private final Board board;
     private final Random random;
 
-    public SnakeLadderAdder(Board board) {
+    public SnakeLadderAdderService(Board board) {
         this.board = board;
         this.random = new Random();
     }
 
-    void addLadders() {
+    public void addLadders() {
         while (board.getRemainingLadderCount() > 0) {
             int start = random.nextInt(board.getSize() - 1) + 1;
             int end = random.nextInt(board.getSize() - start) + start + 1;
@@ -22,7 +26,7 @@ public class SnakeLadderAdder {
         }
     }
 
-    void addSnakes() {
+    public void addSnakes() {
         while (board.getRemainingSnakeCount() > 0) {
             int start = random.nextInt(board.getSize() - 1) + 1;
             int end = random.nextInt(start - 1) + 1;

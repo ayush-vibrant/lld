@@ -1,5 +1,6 @@
 package questions.snakeAndLadder.entity;
 
+
 import java.util.Random;
 
 public class Dice {
@@ -12,11 +13,19 @@ public class Dice {
         this.diceCount = diceCount;
     }
 
-    public int rollDice() {
-        int diceRoll = 0;
-        for (int i = 0; i < diceCount; i++) {
-            diceRoll += random.nextInt(endNumber - startNumber + 1) + startNumber;
-        }
-        return diceRoll;
+    public int getDiceCount() {
+        return diceCount;
+    }
+
+    public int getStartNumber() {
+        return startNumber;
+    }
+
+    public int getEndNumber() {
+        return endNumber;
+    }
+
+    public Random getRandom() {
+        return random;
     }
 }

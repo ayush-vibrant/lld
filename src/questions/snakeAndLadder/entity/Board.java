@@ -1,13 +1,11 @@
 package questions.snakeAndLadder.entity;
 
+
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 public class Board {
     private final int size;
-    private final SnakeLadderAdder snakeLadderAdder = new SnakeLadderAdder(this);
-
     // snakeCount and ladderCount should be final,
     // but if they are final then they cannot be changed in the addSnakes and addLadders methods.
     // hence to solve that, we are adding two new variables to keep track of the remaining ladders and snakes
@@ -18,7 +16,6 @@ public class Board {
     private Map<Integer, Cell> board;
 
 
-
     public Board(int size, int snakeCount, int ladderCount) {
         this.size = size;
         this.snakeCount = snakeCount;
@@ -26,27 +23,6 @@ public class Board {
         this.ladderCount = ladderCount;
         this.remainingLadderCount = ladderCount;
         this.board = new HashMap<>();
-    }
-
-    public Map<Integer, Cell> createBoard() {
-        initializeBoard();
-        snakeLadderAdder.addSnakes();
-        snakeLadderAdder.addLadders();
-        return board;
-    }
-
-    private void addLadders() {
-        snakeLadderAdder.addLadders();
-    }
-
-    private void addSnakes() {
-        snakeLadderAdder.addSnakes();
-    }
-
-    private void initializeBoard() {
-        for (int i = 1; i <= size; i++) {
-            board.put(i, new NormalCell(i));
-        }
     }
 
     public int getSize() {
