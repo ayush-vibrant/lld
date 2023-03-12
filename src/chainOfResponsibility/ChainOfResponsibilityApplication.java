@@ -1,5 +1,7 @@
 package chainOfResponsibility;
 
+import chainOfResponsibility.entity.*;
+
 public class ChainOfResponsibilityApplication {
     public static void main(String[] args) {
 

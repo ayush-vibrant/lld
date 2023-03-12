@@ -1,4 +1,4 @@
-package chainOfResponsibility;
+package chainOfResponsibility.entity;
 
 public class Request {
     private String requestType;

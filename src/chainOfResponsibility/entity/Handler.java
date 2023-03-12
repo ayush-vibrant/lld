@@ -1,4 +1,4 @@
-package chainOfResponsibility;
+package chainOfResponsibility.entity;
 
 public abstract class Handler {
     Handler nextHandler;
