@@ -15,7 +15,7 @@ public class ElevatorApplication {
         Floor currentFloor = floorList.get(5);
         FloorService floorService = new FloorService(currentFloor); // current floor is destination floor for an elevator
         // what will be it's return type?
-        floorService.getButton().pressButton();
+//        floorService.getButton().pressButton(currentFloor, 1);
         floorService.requestElevator(1);
 
 

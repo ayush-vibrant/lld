@@ -15,8 +15,8 @@ public class FloorService {
         floor.requestElevator(this.floor, elevatorId);
     }
 
-    public Button getButton(){
-        return floor.getExternalButton();
-    }
+//    public Button getButton() {
+//        return floor.();
+//    }
 
 }
