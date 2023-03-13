@@ -3,6 +3,7 @@ package questions.ticTacToe;
 import questions.ticTacToe.entity.Board;
 import questions.ticTacToe.entity.Game;
 import questions.ticTacToe.entity.Player;
+import questions.ticTacToe.entity.Symbol;
 import questions.ticTacToe.service.BoardService;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class TicTacToeApplication {
             System.out.println("Enter column number");
             int column = scanner.nextInt();
 
-            Character currentPlayerSymbol = currentPlayer.getSymbol();
+            Symbol currentPlayerSymbol = currentPlayer.getSymbol();
             boardService.addSymbol(currentPlayerSymbol, row, column);
             boardService.printBoard();
 
@@ -47,8 +48,8 @@ public class TicTacToeApplication {
 
     private static List<Player> getPlayers() {
         List<Player> players = new ArrayList<>();
-        players.add(new Player("Player 1", 'X'));
-        players.add(new Player("Player 2", 'O'));
+        players.add(new Player("Player 1", Symbol.X));
+        players.add(new Player("Player 2", Symbol.O));
         return players;
     }
 }

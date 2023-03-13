@@ -2,9 +2,9 @@ package questions.ticTacToe.entity;
 
 public class Player {
     String playerId;
-    Character symbol;
+    Symbol symbol;
 
-    public Player(String playerId, Character symbol) {
+    public Player(String playerId, Symbol symbol) {
         this.playerId = playerId;
         this.symbol = symbol;
     }
@@ -13,7 +13,7 @@ public class Player {
         return playerId;
     }
 
-    public Character getSymbol() {
+    public Symbol getSymbol() {
         return symbol;
     }
 }

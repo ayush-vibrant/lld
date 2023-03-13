@@ -2,13 +2,13 @@ package questions.ticTacToe.entity;
 
 
 public class Board {
-    Character[][] cells;
+    Symbol[][] cells;
 
     public Board() {
-        this.cells = new Character[3][3];
+        this.cells = new Symbol[3][3];
     }
 
-    public Character[][] getCells() {
+    public Symbol[][] getCells() {
         return cells;
     }
 }

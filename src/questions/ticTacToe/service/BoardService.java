@@ -2,6 +2,7 @@ package questions.ticTacToe.service;
 
 import java.util.Objects;
 import questions.ticTacToe.entity.Board;
+import questions.ticTacToe.entity.Symbol;
 
 public class BoardService {
     Board board;
@@ -10,7 +11,7 @@ public class BoardService {
         this.board = board;
     }
 
-    public void addSymbol(Character symbol, int row, int column) {
+    public void addSymbol(Symbol symbol, int row, int column) {
         board.getCells()[row][column] = symbol;
     }
 
@@ -24,13 +25,14 @@ public class BoardService {
         System.out.println();
     }
 
-    public boolean isGameOver(int lastRow, int lastColumn, Character symbol) {
+    // Can be optimized to do in O(1) time
+    public boolean isGameOver(int lastRow, int lastColumn, Symbol symbol) {
         return isRowComplete(lastRow, symbol) ||
                 isColumnComplete(lastColumn, symbol) ||
                 isDiagonalComplete(symbol);
     }
 
-    private boolean isDiagonalComplete(Character symbol) {
+    private boolean isDiagonalComplete(Symbol symbol) {
         return (Objects.equals(board.getCells()[0][0], symbol) &&
                 Objects.equals(board.getCells()[1][1], symbol) &&
                 Objects.equals(board.getCells()[2][2], symbol)) ||
@@ -39,13 +41,13 @@ public class BoardService {
                         Objects.equals(board.getCells()[2][0], symbol));
     }
 
-    private boolean isColumnComplete(int lastColumn, Character symbol) {
+    private boolean isColumnComplete(int lastColumn, Symbol symbol) {
         return Objects.equals(board.getCells()[0][lastColumn], symbol) &&
                 Objects.equals(board.getCells()[1][lastColumn], symbol) &&
                 Objects.equals(board.getCells()[2][lastColumn], symbol);
     }
 
-    private boolean isRowComplete(int lastRow, Character symbol) {
+    private boolean isRowComplete(int lastRow, Symbol symbol) {
         return Objects.equals(board.getCells()[lastRow][0], symbol) &&
                 Objects.equals(board.getCells()[lastRow][1], symbol) &&
                 Objects.equals(board.getCells()[lastRow][2], symbol);
