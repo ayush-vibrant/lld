@@ -71,6 +71,7 @@ public class MyHashMap<K, V> {
     }
 
     public void put(K key, V value) {
+        // You can even improve this by using ^ (tableSize >>> 16) :: look at java hashmap class hash(Object key) method
         int hashCode = key.hashCode() & (tableSize - 1);
         Entry<K, V> entry = table[hashCode];
         if (entry == null) {
